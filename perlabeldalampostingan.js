@@ -1,6 +1,3 @@
-<!-- Script yang pertama-->
-
-<script type="text/javascript">
     function showrecentposts(json)
 
     {
@@ -55,4 +52,3 @@
     var numchars = 100; <!--jumlah teks yang akan muncul -->
 
     var standardstyling = true;
-</script>
