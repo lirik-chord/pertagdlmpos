@@ -1,54 +1,30 @@
-    function showrecentposts(json)
 
-    {
+var numposts = 100;
+var standardstyling = true;
 
-        for (var i = 0; i < numposts; i++)
+/*  programmer and maker of this code is belong to founder of http://www.ardilas.com
+    rawgit url (https://cdn.rawgit.com/D-dig/js/gh-pages/sitemap3.js)
+*/
 
-        {
-
-            var entry = json.feed.entry[i];
-
-            var posttitle = entry.
-
-            title.$t;
-
-            var posturl;
-
-            if (i == json.feed.entry.length) break;
-
-            for (var k = 0;
-
-                k < entry.link.length;
-
-                k++) {
-                if (entry.link[k].rel == 'alternate') {
-                    posturl = entry.link[k].href;
-                    break;
-
-                }
-            }
-
-            posttitle = posttitle.link(posturl);
-
-            if (standardstyling) document.write('<li>');
-
-            document.write(posttitle);
-
-        }
-
-        if (standardstyling) document.write('</li>');
+function startpost(json){
+  for (var i = 0; i < numposts; i++){
+    var entry = json.feed.entry[i];
+    var posttitle = entry.title.$t;
+    var posturl;
+    
+    if (i == json.feed.entry.length) break;
+    
+    for (var k = 0; k < entry.link.length; k++){
+      if (entry.link[k].rel == 'alternate'){
+        posturl = entry.link[k].href;break;
+      }
     }
-</script>
-
-<!-- end Script yang pertama-->
-
-<!-- Script yang Kedua-->
-
-<script type="text/javascript">
-    var numposts = 5; <!--jumlah postingan yang akan muncul -->
-
-    var showpostdate = true;
-    var showpostsummary = true;
-    var numchars = 100; <!--jumlah teks yang akan muncul -->
-
-    var standardstyling = true;
+        
+    posttitle = posttitle.link(posturl);
+    if (standardstyling) document.write('<li>');
+    
+    document.write(posttitle);
+  }
+  
+  if (standardstyling) document.write('</li>');
+}
